@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
+import { LongPressModule } from 'ionic-long-press';
 
 import { VideosPageRoutingModule } from './videos-routing.module';
 import { SharedModule } from 'src/app/pages/shared.module';
@@ -15,7 +16,8 @@ import { VideosPage } from './videos.page';
     FormsModule,
     IonicModule,
     SharedModule,
-    VideosPageRoutingModule
+    VideosPageRoutingModule,
+    LongPressModule
   ],
   declarations: [VideosPage]
 })

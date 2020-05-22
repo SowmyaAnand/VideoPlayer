@@ -60,13 +60,13 @@ export class VideosPage implements OnInit {
     this.streamingMedia.playVideo(videoPath, options);
   }
 
-  displayDeleteIcons(event, video) {
-    console.log("the event is",event);
-    if (event.type === 'press') {
+  displayDeleteIcons(video,videoobject1) {
+    
+   
       this.showDeleteIcons = true;
       this.videoname = video.name;
       this.videoObject = video;
-    }
+      this.deleteVideoAlert(videoobject1);
   }
 
   unCheck() {

@@ -14,13 +14,13 @@
   <app-skeleton *ngIf="videos.length === 0"></app-skeleton>
 
   <ion-list *ngIf="videos.length > 0">
-    <ion-row *ngFor="let video of videos" (press)="displayDeleteIcons($event, video)">
-      <ion-col size="2" *ngIf="showDeleteIcons && videoname === video.name">
+    <ion-row *ngFor="let video of videos" ion-long-press [interval]="400" >
+      <ion-col size="2">
         <ion-item lines="none">
-          <ion-checkbox 
-          color="primary"
-          (ionChange)="unCheck()"
-          [checked]="showDeleteIcons && videoname === video.name"></ion-checkbox>
+          <ion-button icon-only slot="end" (click)="displayDeleteIcons(video,videoObject)">
+            <ion-icon name="trash-outline">
+            </ion-icon>
+           </ion-button>
         </ion-item>
       </ion-col>
       <ion-col size="10">
@@ -28,6 +28,9 @@
           <ion-thumbnail slot="start">
             <img [src]="video.thumbnail">
           </ion-thumbnail>
+          
+         
+          
           <ion-label>
             {{video.name}}
             <p>{{duration(video.videoInfo.duration)}}</p>
@@ -37,10 +40,10 @@
     </ion-row>
   </ion-list>
 </ion-content>
-<ion-footer no-border *ngIf="videoname && showDeleteIcons">
+<ion-footer>
   <ion-toolbar>
     <ion-tab-bar>
-      <ion-tab-button (click)="deleteVideo(videoObject)">
+      <ion-tab-button >
         <ion-label>Delete</ion-label>
         <ion-icon name="trash"></ion-icon>
       </ion-tab-button>

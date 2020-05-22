@@ -8,7 +8,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { VideoEditor } from '@ionic-native/video-editor/ngx';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media/ngx';
 import { WebView } from '@ionic-native/ionic-webview/ngx';
-import { IonicGestureConfig } from './pages/gesture/ionic.gesture.config';
+import { IonicGestureConfig } from './pages/gesture/IonicGestureConfig';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
