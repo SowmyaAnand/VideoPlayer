@@ -2,6 +2,7 @@ import { async } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { Platform,ToastController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
+// the Below 4 imports are to installed using the commands 
 import { File } from '@ionic-native/file/ngx';
 import { VideoService } from 'src/app/services/video.service';
 import { Subscription } from 'rxjs';

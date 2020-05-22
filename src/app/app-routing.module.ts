@@ -19,6 +19,14 @@ const routes: Routes = [
     path: 'skeleton',
     loadChildren: () => import('./pages/skeleton/skeleton.module').then( m => m.SkeletonPageModule)
   },
+  {
+    path: 'videos',
+    loadChildren: () => import('./pages/videos/videos.module').then( m => m.VideosPageModule)
+  },
+  {
+    path: 'detail',
+    loadChildren: () => import('./pages/detail/detail.module').then( m => m.DetailPageModule)
+  },
 ];
 
 @NgModule({
