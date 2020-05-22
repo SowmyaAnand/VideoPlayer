@@ -18,27 +18,30 @@ export class VideosPage implements OnInit {
   videoObject = {};
   deleted = false;
 
-  constructor( private videoService: VideoService,
+  constructor(
+    private videoService: VideoService,
     private platform: Platform,
     private route: ActivatedRoute,
     private streamingMedia: StreamingMedia,
     private alertCtrl: AlertController,
     private loadingCtrl: LoadingController,
     private modalCtrl: ModalController,
-    private toastCtrl: ToastController) { 
-      this.route.queryParamMap
+    private toastCtrl: ToastController
+  ) {
+    this.route.queryParamMap
       .subscribe((data: Params) => {
         this.path = data.params.folder;
         const name = this.path.split('/').slice(1);
         this.folderName = name[name.length - 1];
       });
-    }
+  }
 
   ngOnInit() {
     this.platform.ready().then(() => {
       this.getAllVideos();
     });
   }
+
   getAllVideos() {
     this.videoService.videosInDir(this.path)
       .then(async (data: any) => {
@@ -49,6 +52,7 @@ export class VideosPage implements OnInit {
         }
       }, err => console.log(err));
   }
+
   playVideo(videoPath) {
     const options: StreamingVideoOptions = {
       successCallback: () => { console.log('Video played'); },
@@ -60,13 +64,12 @@ export class VideosPage implements OnInit {
     this.streamingMedia.playVideo(videoPath, options);
   }
 
-  displayDeleteIcons(video,videoobject1) {
-    
-   
+  displayDeleteIcons(event, video) {
+    if (event.type === 'press') {
       this.showDeleteIcons = true;
       this.videoname = video.name;
       this.videoObject = video;
-      this.deleteVideoAlert(videoobject1);
+    }
   }
 
   unCheck() {
